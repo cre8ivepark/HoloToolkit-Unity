@@ -21,6 +21,8 @@ namespace HoloToolkit.UI.Keyboard
             Enter,
             Tab,
             ABC,
+            JPNHiragana,
+            JPNKatakana,
             Symbol,
             Previous,
             Next,
@@ -29,6 +31,7 @@ namespace HoloToolkit.UI.Keyboard
 
             // Editing
             Shift,
+            Shift2,
             CapsLock,
             Space,
             Backspace,
@@ -59,7 +62,6 @@ namespace HoloToolkit.UI.Keyboard
         /// </summary>
         private void Start()
         {
-            m_Button.onClick.RemoveAllListeners();
             m_Button.onClick.AddListener(new UnityEngine.Events.UnityAction(FireFunctionKey));
         }
 

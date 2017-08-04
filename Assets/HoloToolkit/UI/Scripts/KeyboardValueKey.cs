@@ -21,6 +21,7 @@ namespace HoloToolkit.UI.Keyboard
         /// The shifted string value for this key.
         /// </summary>
         public string ShiftValue;
+        public string ShiftValue2;
 
         /// <summary>
         /// Reference to child text element.
@@ -43,15 +44,15 @@ namespace HoloToolkit.UI.Keyboard
         /// <summary>
         /// Initialize key text, subscribe to the onClick event, and subscribe to keyboard shift event.
         /// </summary>
-        private void Start()
+        void Start()
         {
             m_text = gameObject.GetComponentInChildren<Text>();
             m_text.text = Value;
 
-            m_Button.onClick.RemoveAllListeners();
             m_Button.onClick.AddListener(new UnityEngine.Events.UnityAction(FireAppendValue));
 
             Keyboard.Instance.onKeyboardShifted += Shift;
+            Keyboard.Instance.onKeyboardShifted2 += Shift2;
         }
 
         /// <summary>
@@ -72,6 +73,23 @@ namespace HoloToolkit.UI.Keyboard
             if (isShifted && !string.IsNullOrEmpty(ShiftValue))
             {
                 m_text.text = ShiftValue;
+            }
+            else
+            {
+                m_text.text = Value;
+            }
+        }
+
+        /// <summary>
+        /// Called by the Keyboard when the shift key is pressed. Updates the text for this key using the Value and ShiftValue fields.
+        /// </summary>
+        /// <param name="isShifted"></param>
+        public void Shift2(bool isShifted)
+        {
+            // Shift value should only be applied if a shift value is present.
+            if (isShifted && !string.IsNullOrEmpty(ShiftValue2))
+            {
+                m_text.text = ShiftValue2;
             }
             else
             {
