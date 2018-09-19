@@ -5,7 +5,7 @@
 using Microsoft.MixedReality.Toolkit.SDK.UX;
 using UnityEngine;
 
-namespace HoloToolkit.Unity.UX
+namespace Microsoft.MixedReality.Toolkit.SDK.UX
 {
     /// <summary>
     /// Button logic for the App Bar. Determines position of the button in the App Bar, visibility based on the current mode.
@@ -35,10 +35,14 @@ namespace HoloToolkit.Unity.UX
 
             cButton = GetComponent<Interactable>();
             //cButton.MainRenderer.enabled = false; // Hide in default
-            GetComponentInChildren<TextMesh>().text = template.Text;
+            Debug.Log("################ Initialize template.Text =" + template.Text);
 
-            iconMaterial = GetComponentInChildren<Material>();
-//            iconMaterial.SetTexture();
+            // TODO: Replace with TextMeshPro
+            // GetComponentInChildren<TextMesh>().text = template.Text;
+
+            // TODO: Assign texture with newIconName
+            //iconMaterial = GetComponentInChildren<Material>();
+            //iconMaterial.SetTexture();
 
             //highlightMeshRenderer = cButton.GetComponent<CompoundButtonMesh>().Renderer;
 
@@ -133,9 +137,9 @@ namespace HoloToolkit.Unity.UX
 
             //icon.Alpha = 0f;
             //text.DisableText = true;
-            cButton.enabled = false;
-            highlightMeshRenderer.enabled = false;
-            cButton.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+            //cButton.enabled = false;
+            //highlightMeshRenderer.enabled = false;
+            //cButton.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         }
 
         private void Show()
@@ -145,9 +149,9 @@ namespace HoloToolkit.Unity.UX
 
             //icon.Alpha = 1f;
             //text.DisableText = false;
-            cButton.enabled = true;
-            highlightMeshRenderer.enabled = true;
-            cButton.gameObject.layer = LayerMask.NameToLayer("UI");
+            //cButton.enabled = true;
+            //highlightMeshRenderer.enabled = true;
+            //cButton.gameObject.layer = LayerMask.NameToLayer("UI");
         }
 
         private void RefreshOffsets()

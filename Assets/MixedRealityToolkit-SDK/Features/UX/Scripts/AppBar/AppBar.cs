@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace HoloToolkit.Unity.UX
+namespace Microsoft.MixedReality.Toolkit.SDK.UX
 {
     /// <summary>
     /// Logic for the App Bar. Generates buttons, manages states.
@@ -200,7 +200,6 @@ namespace HoloToolkit.Unity.UX
 //helper = new BoundingBoxHelper();
         }
 
-        //protected override void InputClicked(GameObject obj, InputClickedEventData eventData)
         protected override void InputClicked(GameObject obj, InputEventData eventData)
         {
             if (Time.time < lastTimeTapped + coolDownTime)
@@ -223,21 +222,20 @@ namespace HoloToolkit.Unity.UX
                     break;
 
                 case "Adjust":
-                    // Make the bounding box active so users can manipulate it
+                    // Make the bounding box rig active so users can manipulate it
                     State = AppBarStateEnum.Manipulation;
                     // Activate BoundingBoxRig
                     //boundingBox.Target.GetComponent<BoundingBoxRig>().Activate();
                     break;
 
                 case "Hide":
-                    // Make the bounding box inactive and invisible
+                    // Make the App Bar inactive and invisible
                     State = AppBarStateEnum.Hidden;
                     break;
 
                 case "Show":
                     State = AppBarStateEnum.Default;
-                    // Deactivate BoundingBoxRig
-                    //boundingBox.Target.GetComponent<BoundingBoxRig>().Deactivate();
+                    // Make the App Bar active and visible
                     break;
 
                 case "Done":
@@ -250,7 +248,7 @@ namespace HoloToolkit.Unity.UX
                     break;
             }
 
-            base.InputClicked(obj, eventData);
+            // base.InputClicked(obj, eventData);
 
         }
 
