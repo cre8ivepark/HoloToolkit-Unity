@@ -104,7 +104,7 @@ namespace Microsoft.MixedReality.Toolkit.SDK.UX
             Manipulation,
             Hidden
         }
-/*
+
         public BoundingBox BoundingBox
         {
             get { return boundingBox; }
@@ -121,7 +121,7 @@ namespace Microsoft.MixedReality.Toolkit.SDK.UX
             get { return boundingRig; }
             set { boundingRig = value; }
         }
-*/
+
 
         public GameObject SquareButtonPrefab;
 
@@ -164,18 +164,18 @@ namespace Microsoft.MixedReality.Toolkit.SDK.UX
         private GameObject backgroundBar = null;
 
         [SerializeField]
-//private BoundingBox boundingBox;
+        private BoundingBox boundingBox;
 
         private Vector3 targetBarSize = Vector3.one;
         private float lastTimeTapped = 0f;
         private float coolDownTime = 0.5f;
         private int numHiddenButtons;
-//private BoundingBoxHelper helper;
+        private BoundingBoxHelper helper;
 
         public void Reset()
         {
             State = AppBarStateEnum.Default;
-//FollowBoundingBox(false);
+            FollowBoundingBox(false);
             lastTimeTapped = Time.time + coolDownTime;
         }
 
@@ -197,7 +197,7 @@ namespace Microsoft.MixedReality.Toolkit.SDK.UX
                 }
             }
 
-//helper = new BoundingBoxHelper();
+            helper = new BoundingBoxHelper();
         }
 
         protected override void InputClicked(GameObject obj, InputEventData eventData)
@@ -215,9 +215,9 @@ namespace Microsoft.MixedReality.Toolkit.SDK.UX
             {
                 case "Remove":
                     // Destroy the target object, Bounding Box, Bounding Box Rig and App Bar
-                    //boundingBox.Target.GetComponent<BoundingBoxRig>().Deactivate();
-                    //Destroy(boundingBox.Target.GetComponent<BoundingBoxRig>());
-                    //Destroy(boundingBox.Target);
+                    boundingBox.Target.GetComponent<BoundingBoxRig>().Deactivate();
+                    Destroy(boundingBox.Target.GetComponent<BoundingBoxRig>());
+                    Destroy(boundingBox.Target);
                     Destroy(gameObject);
                     break;
 
@@ -225,7 +225,7 @@ namespace Microsoft.MixedReality.Toolkit.SDK.UX
                     // Make the bounding box rig active so users can manipulate it
                     State = AppBarStateEnum.Manipulation;
                     // Activate BoundingBoxRig
-                    //boundingBox.Target.GetComponent<BoundingBoxRig>().Activate();
+                    boundingBox.Target.GetComponent<BoundingBoxRig>().Activate();
                     break;
 
                 case "Hide":
@@ -241,7 +241,7 @@ namespace Microsoft.MixedReality.Toolkit.SDK.UX
                 case "Done":
                     State = AppBarStateEnum.Default;
                     // Deactivate BoundingBoxRig
-                    //boundingBox.Target.GetComponent<BoundingBoxRig>().Deactivate();
+                    boundingBox.Target.GetComponent<BoundingBoxRig>().Deactivate();
                     break;
 
                 default:
@@ -298,7 +298,7 @@ namespace Microsoft.MixedReality.Toolkit.SDK.UX
             mtb.Initialize(this, template, customIconProfile);
         }
 
-/*
+
         private void FollowBoundingBox(bool smooth)
         {
             if (boundingBox == null)
@@ -342,10 +342,10 @@ namespace Microsoft.MixedReality.Toolkit.SDK.UX
             eulerAngles.z = 0f;
             transform.eulerAngles = eulerAngles;
         }
-*/
+
         private void Update()
         {
-            //FollowBoundingBox(true);
+            FollowBoundingBox(true);
 
             switch (State)
             {

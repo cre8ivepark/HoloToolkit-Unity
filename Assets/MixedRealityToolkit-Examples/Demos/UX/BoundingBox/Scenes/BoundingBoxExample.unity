@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 94184980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.045, y: 1.196, z: 1.2}
+  m_LocalPosition: {x: 0.008000016, y: 1.196, z: 1.2}
   m_LocalScale: {x: 0.28887495, y: 0.28887486, z: 0.28887486}
   m_Children:
   - {fileID: 1798027474}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2ddf37145d66449b3bb268eb25d7ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateInDefault: 1
+  activateInDefault: 0
   flattenedAxis: 0
   scaleHandleMaterial: {fileID: 2100000, guid: 4e67b503a60a7a54aac09d9893103f30, type: 2}
   rotateHandleMaterial: {fileID: 2100000, guid: 4e67b503a60a7a54aac09d9893103f30,
@@ -168,6 +168,8 @@ MonoBehaviour:
   rotateAroundPivot: 0
   boundingBoxPrefab: {fileID: 114030465538688920, guid: 8084c41e44c5cfa4da76e4aa1200186d,
     type: 2}
+  appBarPrefab: {fileID: 114050950401502068, guid: 6cbf40d5add1a6f4c9bd64ddae7391b5,
+    type: 2}
 --- !u!1001 &396372432
 Prefab:
   m_ObjectHideFlags: 0
@@ -177,7 +179,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4753320988497866, guid: a900c08743a94c328074df8bbe3eb63c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: -0.03700006
       objectReference: {fileID: 0}
     - target: {fileID: 4753320988497866, guid: a900c08743a94c328074df8bbe3eb63c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -685,7 +687,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1184199440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.625, y: -0.547, z: -1.269}
+  m_LocalPosition: {x: -1.4120001, y: -0.547, z: -1.269}
   m_LocalScale: {x: 1.2775464, y: 1.2775463, z: 1.2775463}
   m_Children:
   - {fileID: 643040969}
@@ -703,7 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2ddf37145d66449b3bb268eb25d7ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateInDefault: 1
+  activateInDefault: 0
   flattenedAxis: 0
   scaleHandleMaterial: {fileID: 2100000, guid: 4e67b503a60a7a54aac09d9893103f30, type: 2}
   rotateHandleMaterial: {fileID: 2100000, guid: 4e67b503a60a7a54aac09d9893103f30,
@@ -716,6 +718,8 @@ MonoBehaviour:
   handMotionToRotate: 0
   rotateAroundPivot: 0
   boundingBoxPrefab: {fileID: 114030465538688920, guid: 8084c41e44c5cfa4da76e4aa1200186d,
+    type: 2}
+  appBarPrefab: {fileID: 114050950401502068, guid: 6cbf40d5add1a6f4c9bd64ddae7391b5,
     type: 2}
 --- !u!1 &1210157473
 GameObject:
@@ -866,7 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2ddf37145d66449b3bb268eb25d7ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateInDefault: 1
+  activateInDefault: 0
   flattenedAxis: 4
   scaleHandleMaterial: {fileID: 2100000, guid: 4e67b503a60a7a54aac09d9893103f30, type: 2}
   rotateHandleMaterial: {fileID: 2100000, guid: 4e67b503a60a7a54aac09d9893103f30,
@@ -879,6 +883,8 @@ MonoBehaviour:
   handMotionToRotate: 0
   rotateAroundPivot: 0
   boundingBoxPrefab: {fileID: 114030465538688920, guid: 8084c41e44c5cfa4da76e4aa1200186d,
+    type: 2}
+  appBarPrefab: {fileID: 114050950401502068, guid: 6cbf40d5add1a6f4c9bd64ddae7391b5,
     type: 2}
 --- !u!65 &1565234131
 BoxCollider:
@@ -941,7 +947,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1565234129}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.253, y: 1.183, z: 1.4405}
+  m_LocalPosition: {x: 1.2159998, y: 1.183, z: 1.4405}
   m_LocalScale: {x: 0.7451933, y: 0.44299102, z: 0.009201542}
   m_Children:
   - {fileID: 549044536}
@@ -1278,7 +1284,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: aa39033344b08ce4bab10cc11dc6d6b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.883
+      value: -1.154
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: aa39033344b08ce4bab10cc11dc6d6b8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1350,7 +1356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2ddf37145d66449b3bb268eb25d7ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateInDefault: 1
+  activateInDefault: 0
   flattenedAxis: 0
   scaleHandleMaterial: {fileID: 2100000, guid: 4e67b503a60a7a54aac09d9893103f30, type: 2}
   rotateHandleMaterial: {fileID: 2100000, guid: 4e67b503a60a7a54aac09d9893103f30,
@@ -1363,6 +1369,8 @@ MonoBehaviour:
   handMotionToRotate: 0
   rotateAroundPivot: 0
   boundingBoxPrefab: {fileID: 114030465538688920, guid: 8084c41e44c5cfa4da76e4aa1200186d,
+    type: 2}
+  appBarPrefab: {fileID: 114050950401502068, guid: 6cbf40d5add1a6f4c9bd64ddae7391b5,
     type: 2}
 --- !u!1 &2121517732
 GameObject:

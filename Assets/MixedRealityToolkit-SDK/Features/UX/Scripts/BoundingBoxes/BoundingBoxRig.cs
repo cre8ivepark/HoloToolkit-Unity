@@ -57,15 +57,15 @@ namespace Microsoft.MixedReality.Toolkit.SDK.UX
         [Tooltip("To visualize the object bounding box, drop the MixedRealityToolkit/UX/Prefabs/BoundingBoxes/BoundingBoxBasic.prefab here.")]
         private BoundingBox boundingBoxPrefab;
 
-      //  [SerializeField]
-      //  [Tooltip("AppBar prefab.")]
-       // private AppBar appBarPrefab = null;
+        [SerializeField]
+        [Tooltip("AppBar prefab.")]
+        private AppBar appBarPrefab = null;
 
         private BoundingBox boxInstance;
 
         private GameObject objectToBound;
 
-      //  private AppBar appBarInstance;
+        private AppBar appBarInstance;
 
         private GameObject[] rotateHandles;
 
@@ -188,9 +188,9 @@ namespace Microsoft.MixedReality.Toolkit.SDK.UX
 
             BuildRig();
 
-           // appBarInstance = Instantiate(appBarPrefab) as AppBar;
-           // appBarInstance.BoundingBox = boxInstance;
-           // appBarInstance.HoverOffsetZ = appBarHoverOffsetZ;
+            appBarInstance = Instantiate(appBarPrefab) as AppBar;
+            appBarInstance.BoundingBox = boxInstance;
+            appBarInstance.HoverOffsetZ = appBarHoverOffsetZ;
 
             boxInstance.IsVisible = false;
 
