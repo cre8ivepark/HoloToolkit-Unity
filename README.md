@@ -48,6 +48,11 @@ Please check out the [Getting Started Guide](https://microsoft.github.io/MixedRe
 ### More Documentation
 Find this readme, other documentation articles and the MRTK api reference on our [MRTK Dev Portal on github.io](https://microsoft.github.io/MixedRealityToolkit-Unity/). 
 
+# Foundational components
+|  [![Input Simulation](/External/ReadMeImages/Button/MRTK_Button_Main.png)](/Documentation/README_Button.md) [Input Simulation](/Documentation/README_Button.md) | [![Hand Tracking](/External/ReadMeImages/BoundingBox/MRTK_BoundingBox_Main.png)](/Documentation/InputSystem/HandTracking.md) [Hand Tracking](/Documentation/InputSystem/HandTracking.md) | [![Eye Tracking](/External/ReadMeImages/ManipulationHandler/MRTK_Manipulation_Main.png)](/Documentation/README_ManipulationHandler.md) [Eye Tracking](/Documentation/README_ManipulationHandler.md) | [![Spatial Awareness](/External/ReadMeImages/SpatialAwareness/MRTK_SpatialAwareness_Main.png)](/Documentation/SpatialAwareness/SpatialAwarenessGettingStarted.md) [Spatial Awareness](/Documentation/SpatialAwareness/SpatialAwarenessGettingStarted.md) |
+|:--- | :--- | :--- | :--- |
+| Description | Description | Description | Description |
+
 # UI and Interaction Building blocks
 |  [![Button](External/ReadMeImages/Button/MRTK_Button_Main.png)](Documentation/README_Button.md) [Button](Documentation/README_Button.md) | [![Bounding Box](External/ReadMeImages/BoundingBox/MRTK_BoundingBox_Main.png)](Documentation/README_BoundingBox.md) [Bounding Box](Documentation/README_BoundingBox.md) | [![Manipulation Handler](External/ReadMeImages/ManipulationHandler/MRTK_Manipulation_Main.png)](Documentation/README_ManipulationHandler.md) [Manipulation Handler](Documentation/README_ManipulationHandler.md) |
 |:--- | :--- | :--- |
