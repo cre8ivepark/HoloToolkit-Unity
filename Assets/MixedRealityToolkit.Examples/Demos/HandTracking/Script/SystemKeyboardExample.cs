@@ -58,7 +58,7 @@ namespace Microsoft.MixedReality.Toolkit.Examples.Demos
             {
                 if (debugMessage != null)
                 {
-                    debugMessage.text = "typing... " + keyboardText;
+                    debugMessage.text = "typing... " + KeyboardText;
                 }
             }
             else
@@ -74,7 +74,7 @@ namespace Microsoft.MixedReality.Toolkit.Examples.Demos
                 {
                     if (debugMessage != null)
                     {
-                        debugMessage.text = "typed " + keyboardText;
+                        debugMessage.text = "typed " + KeyboardText;
                     }
                 }
             }
@@ -91,15 +91,16 @@ namespace Microsoft.MixedReality.Toolkit.Examples.Demos
                 {
                     if (debugMessage != null)
                     {
-                        debugMessage.text = "typing... " + keyboardText;
+                        debugMessage.text = "typing... " + KeyboardText;
                     }
                 }
                 else
                 {
                     if (debugMessage != null)
                     {
-                        debugMessage.text = "typed " + keyboardText;
+                        debugMessage.text = "typed " + KeyboardText;
                     }
+
                     touchscreenKeyboard = null;
                 }
             }

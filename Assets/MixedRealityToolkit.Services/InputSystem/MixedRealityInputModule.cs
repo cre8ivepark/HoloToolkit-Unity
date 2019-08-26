@@ -68,6 +68,7 @@ namespace Microsoft.MixedReality.Toolkit.Input
             }
         }
 
+        /// <inheritdoc />
         public override void ActivateModule()
         {
             base.ActivateModule();
@@ -86,6 +87,7 @@ namespace Microsoft.MixedReality.Toolkit.Input
             }
         }
 
+        /// <inheritdoc />
         public override void DeactivateModule()
         {
             if (InputSystem != null)
