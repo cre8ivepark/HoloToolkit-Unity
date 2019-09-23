@@ -64,52 +64,27 @@ namespace Microsoft.MixedReality.Toolkit.Tests
 
             // 3. Assign SpeechConfirmationTooltip.prefab
 
-            // 4. Select the keyword (non-system-reservied keyword)
+            // 4. Select the keyword in the SpeechInputHandler (non-system-reservied keyword)
 
             // 5. Trigger speech input
-
-            // 6. Check if SpeechConfirmationTooltip.prefab is instantiated and animated 
-
-            // 7. Check if SpeechConfirmationTooltip.prefab instance is destroyed
-
-
-            // Toggle the profiler visualization off.
             var gazeInputSource = inputSystem.DetectedInputSources.Where(x => x.SourceName.Equals("Gaze")).First();
             inputSystem.RaiseSpeechCommandRecognized(
                 gazeInputSource,
                 RecognitionConfidenceLevel.High,
                 new TimeSpan(),
                 DateTime.Now,
-                new SpeechCommands("toggle profiler", KeyCode.Alpha9, MixedRealityInputAction.None));
+                new SpeechCommands("[KEYWORD SELECTED IN SpeechInputHandler]", KeyCode.Alpha9, MixedRealityInputAction.None));
             // It may take a few frames before the event is handled and the system responds to the state change.
             for (int i = 0; i < frameDelay; i++) { yield return null; }
 
+            // 6. Check if SpeechConfirmationTooltip.prefab is instantiated and animated 
+
+            // 7. Check if SpeechConfirmationTooltip.prefab instance is destroyed
+
+
+
             // Verify that the VisualProfiler is disabled.
             // Assert.IsFalse( , "The VisualProfiler is active (should be inactive).");
-            yield return null;
-
-
-            // ----------------------------------------------------------
-            // EXAMPLE PLAY MODE TEST METHODS
-            // ----------------------------------------------------------
-            // Getting the input system
-            // var inputSystem = PlayModeTestUtilities.GetInputSystem();
-
-            // Creating a new test hand for input
-            // var rightHand = new TestHand(Handedness.Right);
-            // yield return rightHand.Show(new Vector3(0, 0, 0.5f));
-
-            // Moving the new test hand
-            // We are doing a yield return here because moving the hand to a new position
-            // requires multiple frames to complete the action.
-            // yield return rightHand.MoveTo(new Vector3(0, 0, 2.0f));
-
-            // Getting a specific pointer from the hand
-            // var linePointer = PointerUtils.GetPointer<LinePointer>(Handedness.Right);
-            // Assert.IsNotNull(linePointer);
-            // ---------------------------------------------------------
-
-            // Your new test here
             yield return null;
         }
         #endregion
