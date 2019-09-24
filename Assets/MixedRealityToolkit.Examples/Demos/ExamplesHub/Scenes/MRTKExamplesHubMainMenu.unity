@@ -557,7 +557,7 @@ PrefabInstance:
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2,
         type: 3}
       propertyPath: contentScene.BuildIndex
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2,
         type: 3}
@@ -573,12 +573,12 @@ PrefabInstance:
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2,
         type: 3}
       propertyPath: contentScene.Name
-      value: HandBasedMenuExample
+      value: HandMenuExample
       objectReference: {fileID: 0}
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2,
         type: 3}
       propertyPath: contentScene.Path
-      value: Assets/MixedRealityToolkit.Examples/Experimental/HandTracking/Scenes/HandBasedMenuExample.unity
+      value: Assets/MixedRealityToolkit.Examples/Demos/HandTracking/Scenes/HandMenuExample.unity
       objectReference: {fileID: 0}
     - target: {fileID: 2701701781877227748, guid: 97e77b91a85a1c844aee31efd81859a2,
         type: 3}
