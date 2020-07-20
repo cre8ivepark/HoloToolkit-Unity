@@ -113,10 +113,11 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.SurfacePulse
 		{
 			repeatingPulse = false;
 			cancelPulse = false;
-			if (RepeatPulseCoroutine == null)
+			if (RepeatPulseCoroutine != null)
 			{
-				RepeatPulseCoroutine = StartCoroutine(CoRepeatPulse());
-			}
+				StopCoroutine(RepeatPulseCoroutine);
+			}				
+			RepeatPulseCoroutine = StartCoroutine(CoRepeatPulse());
 		}
 
 		public void StopPulsing(bool bFinishCurrentPulse = true)
