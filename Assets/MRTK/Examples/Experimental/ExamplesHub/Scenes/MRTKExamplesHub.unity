@@ -522,9 +522,29 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7034912422301590908, guid: 3b812638595c9fd48adef6d6ec90b2aa,
+        type: 3}
+      propertyPath: startDimensionIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326597415069831147, guid: 3b812638595c9fd48adef6d6ec90b2aa,
+        type: 3}
+      propertyPath: isHandJointVisible
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326597415069831147, guid: 3b812638595c9fd48adef6d6ec90b2aa,
+        type: 3}
+      propertyPath: isHandMeshVisible
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8523790947019407673, guid: 3b812638595c9fd48adef6d6ec90b2aa,
         type: 3}
       propertyPath: contentScene.BuildIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523790947019407673, guid: 3b812638595c9fd48adef6d6ec90b2aa,
+        type: 3}
+      propertyPath: contentScene.Included
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
