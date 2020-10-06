@@ -56,65 +56,70 @@ namespace Microsoft.MixedReality.Toolkit.XRSDK.Oculus.Editor
         private static readonly string[] Definitions = { "OCULUSINTEGRATION_PRESENT" };
 
         /// <summary>
-        /// Detects if the Oculus Integration package is present and updates the AsmDefs with the appropriate definitions and references.
+        /// Integrate MRTK and the Oculus Integration Unity Modules if the Oculus Integration Unity Modules is in the project. If it is not in the project, display a pop up window.
         /// </summary>
         [MenuItem("Mixed Reality Toolkit/Utilities/Oculus/Integrate Oculus Integration Unity Modules")]
-        internal static void ConfigureOculusIntegration()
+        internal static void IntegrateOculusWithMRTK()
         {
-            bool OculusIntegrationPresent = ReconcileOculusIntegrationDefine();
+            // Check if Oculus Integration package is present
+            bool oculusIntegrationPresent = DetectOculusIntegrationDefine();
 
-            // Updating asmdefs
-            FileInfo[] oculusXRSDKAsmDefFile = FileUtilities.FindFilesInAssets("Microsoft.MixedReality.Toolkit.Providers.XRSDK.Oculus.asmdef");
-            FileInfo[] oculusXRSDKHandtrackingUtilsAsmDefFile = FileUtilities.FindFilesInAssets("Microsoft.MixedReality.Toolkit.XRSDK.Oculus.Handtracking.Utilities.asmdef");
-            FileInfo[] oculusXRSDKHandtrackingEditorAsmDefFile = FileUtilities.FindFilesInAssets("Microsoft.MixedReality.Toolkit.XRSDK.Oculus.Handtracking.Editor.asmdef");
-
-            List<FileInfo[]> oculusAsmDefFiles = new List<FileInfo[]>() { oculusXRSDKAsmDefFile, oculusXRSDKHandtrackingUtilsAsmDefFile, oculusXRSDKHandtrackingEditorAsmDefFile };
-
-            foreach (FileInfo[] oculusAsmDefFile in oculusAsmDefFiles)
+            if (!oculusIntegrationPresent)
             {
-                // When MRTK is used through NuGet compiled assemblies, there will not be an asmdef file in the assets directory to configure.
-                if (oculusAsmDefFile.Length == 0)
-                {
-                    return;
-                }
+                EditorUtility.DisplayDialog(
+                    "Oculus Integration Package Not Detected",
+                    "The Oculus Integration Package could not be found in this project, please import the assets into this project. The assets can be found here: " +
+                        "https://assetstore.unity.com/packages/tools/integration/oculus-integration-82022",
+                    "OK");
+            }
 
-                AssemblyDefinition oculusAsmDef = AssemblyDefinition.Load(oculusAsmDefFile[0].FullName);
+            // Update the ScriptingDefinitions depending on the presence of the Oculus Integration Unity Modules
+            ReconcileOculusIntegrationDefine(oculusIntegrationPresent);
 
-                List<string> references = oculusAsmDef.References.ToList();
+            // Configure the project definitions and prefabs
+            ConfigureOculusIntegration(oculusIntegrationPresent);
+        }
 
-                if (!OculusIntegrationPresent)
-                {
-                    Debug.Log("Oculus Integration package not detected, removing references from asmdefs");
-                    if (references.Contains("Unity.XR.Oculus"))
-                    {
-                        references.Remove("Unity.XR.Oculus");
-                    }
-                    if (references.Contains("Oculus.VR"))
-                    {
-                        references.Remove("Oculus.VR");
-                    }
-                    if (references.Contains("Oculus.VR.Editor"))
-                    {
-                        references.Remove("Oculus.VR.Editor");
-                    }
-                    oculusAsmDef.References = references.ToArray();
-                }
-                else
-                {
-                    if (oculusAsmDefFile == oculusXRSDKAsmDefFile)
-                    {
-                        oculusAsmDef.AddReference("Unity.XR.Oculus");
-                    }
-                    if (oculusAsmDefFile == oculusXRSDKAsmDefFile || oculusAsmDefFile == oculusXRSDKHandtrackingUtilsAsmDefFile)
-                    {
-                        oculusAsmDef.AddReference("Oculus.VR");
-                    }
-                    if (oculusAsmDefFile == oculusXRSDKHandtrackingEditorAsmDefFile)
-                    {
-                        oculusAsmDef.AddReference("Oculus.VR.Editor");
-                    }
-                }
-                oculusAsmDef.Save(oculusAsmDefFile[0].FullName);
+        /// <summary>
+        /// Separate MRTK and the Oculus Integration Unity Modules and display a prompt for the user to close unity and delete the assets.
+        /// </summary>
+        [MenuItem("Mixed Reality Toolkit/Utilities/Oculus/Separate Oculus Integration Unity Modules")]
+        internal static void SeparateOculusFromMRTK()
+        {
+            bool oculusIntegrationPresent = DetectOculusIntegrationDefine();
+
+            // If the user tries to separate the Oculus Integration assets without assets in the project display a message
+            if (!oculusIntegrationPresent)
+            {EditorUtility.DisplayDialog(
+                    "MRTK Oculus Removal",
+                    "There are no Oculus Integration assets in the project to separate from MRTK",
+                    "OK");
+
+                return;
+            }
+
+            // Force removal of the ScriptingDefinitions while the Oculus Integration is still in the project
+            ReconcileOculusIntegrationDefine(false);
+
+            // Remove the references to the Oculus Integration assembly definitions
+            ConfigureOculusIntegration(false);
+
+            // Prompt the user to close unity and delete the assets to completely remove.  Closing unity and deleting the assets is optional.
+            EditorUtility.DisplayDialog(
+                "MRTK Oculus Integration Removal",
+                "To complete the removal of the Oculus Integration Unity Modules, close Unity, delete the assets and Library folders, and reopen Unity",
+                "OK");
+        }
+
+        /// <summary>
+        /// Detects if the Oculus Integration package is present and updates the project definitions and prefab references.
+        /// </summary>
+        internal static void ConfigureOculusIntegration(bool oculusIntegrationPresent)
+        {
+            // Update the CSC to filter out warnings emitted by the Oculus Integration Package
+            if(oculusIntegrationPresent)
+            {
+                UpdateCSC();
             }
 
             // Updating the device manager profile to point to the right gameobjects
@@ -140,7 +145,7 @@ namespace Microsoft.MixedReality.Toolkit.XRSDK.Oculus.Editor
             {
                 string deviceManagerProfilePath = AssetDatabase.GUIDToAssetPath(deviceManagerProfileGuids[0]);
                 OculusXRSDKDeviceManagerProfile deviceManagerProfile = AssetDatabase.LoadAssetAtPath<OculusXRSDKDeviceManagerProfile>(deviceManagerProfilePath);
-                if (OculusIntegrationPresent)
+                if (oculusIntegrationPresent)
                 {
                     deviceManagerProfile.OVRCameraRigPrefab = ovrCameraRigPrefab;
                     deviceManagerProfile.LocalAvatarPrefab = localAvatarPrefab;
@@ -157,24 +162,30 @@ namespace Microsoft.MixedReality.Toolkit.XRSDK.Oculus.Editor
         }
 
         /// <summary>
-        /// Updates the assembly definitions to mark the Oculus Integration Asset as present or not present
+        /// Checks if the Oculus Integration Asset as present or not present
         /// </summary>
         /// <returns>true if Assets/Oculus/OculusProjectConfig exists, false otherwise</returns>
-        internal static bool ReconcileOculusIntegrationDefine()
+        internal static bool DetectOculusIntegrationDefine()
         {
             FileInfo[] files = FileUtilities.FindFilesInAssets(OculusIntegrationProjectConfig);
 
-            if (files.Length > 0)
+            return files.Length > 0;
+        }
+
+        /// <summary>
+        /// Updates the assembly definitions to mark the Oculus Integration Asset as present or not present
+        /// </summary>
+        internal static void ReconcileOculusIntegrationDefine(bool oculusIntegrationPresent)
+        {
+            if (oculusIntegrationPresent)
             {
                 ScriptUtilities.AppendScriptingDefinitions(BuildTargetGroup.Android, Definitions);
                 ScriptUtilities.AppendScriptingDefinitions(BuildTargetGroup.Standalone, Definitions);
-                return true;
             }
             else
             {
                 ScriptUtilities.RemoveScriptingDefinitions(BuildTargetGroup.Android, Definitions);
                 ScriptUtilities.RemoveScriptingDefinitions(BuildTargetGroup.Standalone, Definitions);
-                return false;
             }
         }
 
@@ -183,7 +194,6 @@ namespace Microsoft.MixedReality.Toolkit.XRSDK.Oculus.Editor
         /// the MRTK source is from the repo, warnings are converted to errors. Warnings are not converted to errors if the MRTK source is from the unity packages.
         /// Warning 618 and 649 are logged when Oculus Integration is imported into the project, 618 is the obsolete warning and 649 is a null on start warning.
         /// </summary>
-        [MenuItem("Mixed Reality Toolkit/Utilities/Oculus/Configure CSC File for Oculus")]
         static void UpdateCSC()
         {
             // The csc file will always be in the root of assets
@@ -201,6 +211,11 @@ namespace Microsoft.MixedReality.Toolkit.XRSDK.Oculus.Editor
                 "618",
                 "649"
             };
+
+            if(!File.Exists(cscFilePath))
+            {
+                return;
+            }
 
             using (StreamReader streamReader = new StreamReader(cscFilePath))
             {
@@ -249,6 +264,8 @@ namespace Microsoft.MixedReality.Toolkit.XRSDK.Oculus.Editor
                     }
                 }
             }
+
+            Debug.Log("csc file updated to filter out warnings");
         }
     }
 }

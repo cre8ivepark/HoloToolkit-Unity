@@ -23,11 +23,13 @@ namespace Microsoft.MixedReality.Toolkit.MSBuild
         /// </summary>
         private static readonly HashSet<string> ExcludedPackageReferences = new HashSet<string>()
         {
-            "Windows.UI.Input.Spatial"
+            "Windows.UI.Input.Spatial",
+            "LeapMotion",
+            "LeapMotion.LeapCSharp"
         };
 
         /// <summary>
-        /// These package refernces are only for Unity 2019.3+ and shouldn't be included when using older versions
+        /// These package references are only for Unity 2019.3+ and shouldn't be included when using older versions
         /// </summary>
         private static readonly HashSet<string> PackageReferencesUnity2019 = new HashSet<string>()
         {
@@ -35,7 +37,8 @@ namespace Microsoft.MixedReality.Toolkit.MSBuild
             "Microsoft.MixedReality.Toolkit.Providers.XRSDK.Oculus.Editor",
             "Microsoft.MixedReality.Toolkit.Providers.XRSDK.Oculus.Handtracking.Editor",
             "Microsoft.MixedReality.Toolkit.Providers.XRSDK.WindowsMixedReality",
-            "Microsoft.MixedReality.Toolkit.Providers.XRSDK"
+            "Microsoft.MixedReality.Toolkit.Providers.XRSDK",
+            "UnityEngine.SpatialTracking"
         };
 
         /// <summary>
@@ -163,6 +166,7 @@ namespace Microsoft.MixedReality.Toolkit.MSBuild
 
             if (!asmDefInfoMap.TryGetValue(projectKey, out AssemblyDefinitionInfo assemblyDefinitionInfo))
             {
+                Debug.LogError($"Can't find an asmdef for project: {projectKey}, this project may need to be to added to the PackageReferencesUnity2019 or ExcludedPackageReferences exclusion list");
                 throw new InvalidOperationException($"Can't find an asmdef for project: {projectKey}");
             }
 
@@ -189,9 +193,9 @@ namespace Microsoft.MixedReality.Toolkit.MSBuild
                 }
 
 #if !UNITY_2019_3_OR_NEWER
-                if(PackageReferencesUnity2019.Contains(reference))
+                if (PackageReferencesUnity2019.Contains(reference))
                 {
-                    Debug.LogWarning($"Skipping processing {reference} for {toReturn.Name}, as it's for Unity 2019.3+");
+                    Debug.LogWarning($"Skipping processing {reference} for {toReturn.Name}, as it's for Unity 2019.3+.");
                     continue;
                 }
 #endif
