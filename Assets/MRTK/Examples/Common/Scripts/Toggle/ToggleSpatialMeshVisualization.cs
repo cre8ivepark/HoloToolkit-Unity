@@ -24,10 +24,13 @@ namespace Microsoft.MixedReality.Toolkit.Examples.Demos
             {
                 // Set to visible
                 observer.DisplayOption = SpatialAwarenessMeshDisplayOptions.Visible;
+                observer.Resume();
             }
             else
             {
                 // Set to not visible
+                observer.Suspend();
+                observer.ClearObservations();
                 observer.DisplayOption = SpatialAwarenessMeshDisplayOptions.None;
             }
         }
