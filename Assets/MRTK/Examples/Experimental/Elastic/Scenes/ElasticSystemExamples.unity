@@ -4512,6 +4512,8 @@ MonoBehaviour:
   moveLerpTime: 0.001
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 0}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -7727,7 +7729,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632692364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.075, z: 0.365}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4359496000045616}
@@ -13579,7 +13581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &982374242
 Transform:
   m_ObjectHideFlags: 0
@@ -14950,6 +14952,8 @@ MonoBehaviour:
   moveLerpTime: 0.001
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 0}
   elasticsManager: {fileID: 1047326344}
   onManipulationStarted:
     m_PersistentCalls:
@@ -15869,7 +15873,7 @@ GameObject:
   - component: {fileID: 1107594379}
   - component: {fileID: 1107594378}
   m_Layer: 0
-  m_Name: MixedRealityToolkit
+  m_Name: MixedRealityToolkit (Inactive)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16295,6 +16299,8 @@ MonoBehaviour:
   moveLerpTime: 0.001
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 0}
   elasticsManager: {fileID: 1121831843}
   onManipulationStarted:
     m_PersistentCalls:
@@ -23453,6 +23459,8 @@ MonoBehaviour:
   moveLerpTime: 0.001
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 0}
   elasticsManager: {fileID: 1649535258}
   onManipulationStarted:
     m_PersistentCalls:
@@ -26015,6 +26023,8 @@ MonoBehaviour:
   moveLerpTime: 0.001
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 0}
   elasticsManager: {fileID: 1814460993}
   onManipulationStarted:
     m_PersistentCalls:
@@ -29524,6 +29534,8 @@ MonoBehaviour:
   moveLerpTime: 0.001
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 0}
   elasticsManager: {fileID: 1954211882}
   onManipulationStarted:
     m_PersistentCalls:
@@ -33215,6 +33227,8 @@ MonoBehaviour:
   moveLerpTime: 0.001
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 0}
   elasticsManager: {fileID: 1128101761368680}
   onManipulationStarted:
     m_PersistentCalls:
