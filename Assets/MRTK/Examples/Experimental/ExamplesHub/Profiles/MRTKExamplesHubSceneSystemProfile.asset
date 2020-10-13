@@ -16,7 +16,7 @@ MonoBehaviour:
   useManagerScene: 0
   managerScene:
     Name: DefaultManagerScene
-    Path: Assets/MRTK/SceneSystemResources/DefaultManagerScene.unity
+    Path: Assets/MRTK/Services/SceneSystem/SceneSystemResources/DefaultManagerScene.unity
     Included: 0
     BuildIndex: -1
     Tag: Untagged
@@ -25,7 +25,7 @@ MonoBehaviour:
   defaultLightingSceneIndex: 0
   lightingScenes:
   - Name: DefaultLightingScene
-    Path: Assets/MRTK/SceneSystemResources/DefaultLightingScene.unity
+    Path: Assets/MRTK/Services/SceneSystem/SceneSystemResources/DefaultLightingScene.unity
     Included: 0
     BuildIndex: -1
     Tag: Untagged
@@ -122,7 +122,7 @@ MonoBehaviour:
     Tag: Untagged
     Asset: {fileID: 102900000, guid: bf3eb3415bffceb41810526380c2c71c, type: 3}
   - Name: ScrollingObjectCollection
-    Path: Assets/MRTK/Examples/Experimental/ScrollingObjectCollection/Scenes/ScrollingObjectCollection.unity
+    Path: Assets/MRTK/Examples/Demos/ScrollingObjectCollection/Scenes/ScrollingObjectCollection.unity
     Included: 1
     BuildIndex: 16
     Tag: Untagged

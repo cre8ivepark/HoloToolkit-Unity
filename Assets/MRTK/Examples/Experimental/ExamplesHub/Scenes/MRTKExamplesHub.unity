@@ -367,6 +367,7 @@ MonoBehaviour:
     Tag: Untagged
     Asset: {fileID: 102900000, guid: 63a00118e809c754f9c7911bb85d635f, type: 3}
   loadOnStartup: 1
+  hideToggleFeaturesPanelsInExampleScenes: 1
 --- !u!4 &1550664220
 Transform:
   m_ObjectHideFlags: 0
@@ -425,6 +426,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2002585262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2174837333182477402, guid: 3b812638595c9fd48adef6d6ec90b2aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 6536232300649225374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2002585274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002585262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee5edbec80ce0243892a97d9a48fe5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6536232300649225374
 PrefabInstance:
   m_ObjectHideFlags: 0
